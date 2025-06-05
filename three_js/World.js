@@ -20,6 +20,7 @@ let controls;
 let cube;
 let tweakPaneUI;
 let loop;
+let debugUI;
 
 
 class World {
@@ -32,12 +33,12 @@ class World {
 
     loop = new AnimLoop(camera, scene, renderer);
     loop.updatables.push(cube);
-    tweakPaneUI = new Pane();
+    // tweakPaneUI = new Pane();
 
 
-    tweakPaneUI = new DebugUI(scene);
-    tweakPaneUI.addUI(cube, "cube");
-    loop.updatables.push(tweakPaneUI.stats);
+    debugUI = new DebugUI(scene);
+    debugUI.addUI(cube, "cube");
+    loop.updatables.push(debugUI.stats);
 
 
     scene.add(cube);
