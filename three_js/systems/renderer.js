@@ -3,10 +3,11 @@ import {
   WebGPURenderer, ACESFilmicToneMapping,
   SRGBColorSpace,
   PCFSoftShadowMap,
+  UnsignedByteType,
 } from "three/webgpu";
 
 function createRenderer() {
-  const renderer = new WebGPURenderer({ antialias: true });
+  const renderer = new WebGPURenderer({ antialias: true, forceWebGL: true, colorBufferType: UnsignedByteType, multiview: true });
 
   renderer.toneMapping = ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1;

@@ -11,6 +11,10 @@ import { AnimLoop } from "./systems/AnimLoop.js";
 import { GridHelper } from "three/webgpu";
 import { Pane } from "tweakpane";
 
+
+import { XRButton } from 'three/addons/webxr/XRButton.js';
+import { XRControllerModelFactory } from 'three/addons/webxr/XRControllerModelFactory.js';
+
 // These variables are module-scoped: we cannot access them
 // from outside the module
 let camera;
@@ -46,6 +50,8 @@ class World {
     const resizer = new Resizer(container, camera, renderer);
     container.append(renderer.domElement);
 
+    document.body.appendChild( XRButton.createButton( renderer ) );
+
     controls = createCameraControls(camera, renderer.domElement);
     loop.updatables.push(controls);
   }
@@ -53,7 +59,7 @@ class World {
   //SETS UP BACKGROUND
   async loadBackground() {
     const { background1, hdri1 } = await hdriLoad();
-    scene.background = background1;
+    // scene.background = background1;
     scene.environment = hdri1;
   }
 
