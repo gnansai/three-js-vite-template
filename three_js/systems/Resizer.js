@@ -3,7 +3,7 @@ const setSize = function (container, camera, renderer) {
   camera.updateProjectionMatrix();
 
   renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
+  // renderer.setPixelRatio(window.devicePixelRatio);
 };
 
 class Resizer {
