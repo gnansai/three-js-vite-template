@@ -15,7 +15,7 @@ async function gltfLoad(renderer) {
   dracoLoader.setDecoderPath('/decoder/');
   loader.setDRACOLoader(dracoLoader);
 
-  const modelData = await loader.loadAsync("/models/materials_test_optimized.glb");
+  const modelData = await loader.loadAsync("/models/Library_Scene_optimized.glb");
 
   const loadedmodel = setupModel(modelData);
 

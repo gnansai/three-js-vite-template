@@ -8,7 +8,7 @@ import { hdriLoad } from "./components/hdri_loader/hdri_loader.js";
 import { createCube } from "./components/cube.js";
 import { DebugUI } from "./systems/DebugUi.js";
 import { AnimLoop } from "./systems/AnimLoop.js";
-import { GridHelper } from "three/webgpu";
+import { AnimationMixer, GridHelper } from "three/webgpu";
 import { Pane } from "tweakpane";
 
 
@@ -67,6 +67,9 @@ class World {
   async loadGltf() {
     const { loadedmodel } = await gltfLoad(renderer);
     scene.add(loadedmodel);
+
+    let mixer = new AnimationMixer(loadedmodel);
+    console.log()
 
     // console.log(loadedmodel)
     // tweakPaneUI.addUI(loadedmodel, "GLTFModel");
